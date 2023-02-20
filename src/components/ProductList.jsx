@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Container, CardWrapper, ProductName } from "./ProductList.styled";
+import { Container, CardWrapper, ProductName } from "./ProductList.styled.js";
 
 export const ProductList = ({ products }) => {
   return (
