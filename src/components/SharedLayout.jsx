@@ -1,6 +1,6 @@
-// Imports
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { Container, Header, Logo, Link } from "./SharedLayout.styled.js";
+import { Container, Header, Logo, Link } from "./SharedLayout.styled";
 
 export const SharedLayout = () => {
   return (
@@ -20,7 +20,9 @@ export const SharedLayout = () => {
           <Link to="/products">Products</Link>
         </nav>
       </Header>
-      <Outlet />
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet />
+      </Suspense>
     </Container>
   );
 };
