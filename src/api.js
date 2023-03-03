@@ -1,37 +1,40 @@
 import axios from 'axios';
-import noPhoto from '../services/clack.jpg';
+import noPhoto from './components/img/clack.jpg';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.params = {
   api_key: 'bd8e0f90f0053a54f510b5a0354d3983',
-  // include_adult: false,
+  include_adult: false,
 };
 
 // https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-export const fetchMovieTrending = () => {
-  return axios.get(`/trending/all/day?`);
-
-}
-
-
-
-
 // export const fetchTrending = async () => {
-//   return axios
-//     .get(`/trending/all/day?`)
-//     .then(({ data: { results } }) =>
-//       results.map(({ id, title, poster_path: poster }) => ({
-//         id,
-//         title,
-//         poster: IMG_URL + poster,
-//       }))
-//     )
-//     .catch(error => {
-//       console.log(error.message);
-//     });
+//   const { data } = await axios.get(`/trending/all/day?`);
+//   console.log(data);
+//   const response = data.results;
+//   return response;
 // };
+// fetchTrending();
+
+export const fetchTrending = async () => {
+  return axios
+    .get(`/trending/all/day?`)
+      .then(({ data: { results } }) =>
+     
+    
+      results.map(({ id, title, name, poster_path: poster }) => ({
+        id,
+        title,
+        name,
+        poster: IMG_URL + poster,
+      }))
+    )
+    .catch(error => {
+      console.log(error.message);
+    });
+};
 
 export const fetchByQuery = async query => {
   return axios
