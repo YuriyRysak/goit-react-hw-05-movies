@@ -1,4 +1,4 @@
-import { fetchMovieCredits } from '../../api';
+import { fetchMovieCast } from '../../api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const Cast = () => {
   const [credits, setCredits] = useState([]);
 
   useEffect(() => {
-    fetchMovieCredits(movieId).then(setCredits);
+    fetchMovieCast(movieId).then(setCredits);
   }, [movieId]);
 
   return (

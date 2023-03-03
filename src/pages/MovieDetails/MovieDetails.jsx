@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
-import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from '../../api';
+import { BackLink } from "../../components/BackLink";
 import {
-  Btn,
   MovieContainer,
   Img,
   MovieInfo,
@@ -17,7 +17,6 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
-  const navigate = useNavigate();
   const backLinkHref = location.state?.from ?? '/movies';
 
   const { poster, title, releaseYear, userScore, overview, genres } =
@@ -27,15 +26,11 @@ const MovieDetails = () => {
     fetchMovieDetails(movieId).then(setMovie);
   }, [movieId]);
 
-  const backToMovies = () => {
-    navigate(backLinkHref);
-  };
 
   return (
     <div>
-      <Btn type="button" onClick={backToMovies}>
-        Back to movies
-      </Btn>
+      <BackLink to={backLinkHref}>Back to movies</BackLink>
+     
       {movie && (
         <div>
           <MovieContainer>

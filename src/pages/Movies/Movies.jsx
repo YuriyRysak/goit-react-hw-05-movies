@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { fetchByQuery } from '../../api';
+import { SearchBox } from "../../components/SearchBox/SearchBox";
+
 import {
   FormDiv,
-  Form,
-  Input,
-  Button,
+  // Form,
+  // Input,
+  // Button,
   MovieList,
   MovieItem,
   MovieLink,
@@ -40,10 +42,11 @@ const Movies = () => {
   return (
     <>
       <FormDiv>
-        <Form onSubmit={handleSubmit}>
+      <SearchBox value={query} onChange={onChange} onSubmit={handleSubmit}/>
+        {/* <Form onSubmit={handleSubmit}>
           <Input type="text" value={query} onChange={onChange} />
           <Button type="submit">search</Button>
-        </Form>
+        </Form> */}
       </FormDiv>
       {movies.length > 0 && (
         <MovieList>
