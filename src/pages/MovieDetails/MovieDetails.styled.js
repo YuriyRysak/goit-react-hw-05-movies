@@ -1,15 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Btn = styled.button`
-  border: none;
-  background-color: transparent;
-  margin: 20px 0 0 35px;
-  padding: 0;
-  font-weight: 700;
-  cursor: pointer;
-`;
-
 export const MovieContainer = styled.div`
   display: flex;
   padding: 30px;

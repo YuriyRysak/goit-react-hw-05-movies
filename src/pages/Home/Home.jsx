@@ -20,7 +20,7 @@ const Home = () => {
   // console.log(movies);
   return (
     <HomeContainer>
-      <HomeTitle>Tranding today</HomeTitle>
+      <HomeTitle>Tranding today movies </HomeTitle>
       {movies.length > 0 && (
         <MovieList>
           {movies.map(({ id, title, name, poster }) => (

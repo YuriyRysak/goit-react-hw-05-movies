@@ -1,18 +1,22 @@
 // import { Form } from "react-router-dom";
-import { Wrapper, Input, Icon, Button } from "./SearchBox.styled";
+import { Wrapper, Input, Button, SearchForm, Icon } from "./SearchBox.styled";
 
 export const SearchBox = ({ value, onChange, onSubmit }) => {
   return (
     <Wrapper>
-      <Icon />
-      <form onSubmit={onSubmit}>
+      
+      <SearchForm onSubmit={onSubmit}>
       <Input
         type="text"
+        autocomplete="off"
+        autofocus="off"
+        placeholder="Search movies..."
         value={value}
         onChange={onChange}
        />
-      <Button type="submit"></Button>
-      </form>
+       
+      <Button type="submit"><Icon/></Button>
+      </SearchForm>
     </Wrapper>
   );
 };

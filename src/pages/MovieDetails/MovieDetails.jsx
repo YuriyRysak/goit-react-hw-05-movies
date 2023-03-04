@@ -29,8 +29,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <BackLink to={backLinkHref}>Back to movies</BackLink>
-     
+      <BackLink to={backLinkHref}>Back to movies</BackLink>     
       {movie && (
         <div>
           <MovieContainer>
