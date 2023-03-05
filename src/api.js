@@ -38,7 +38,7 @@ export const fetchByQuery = async query => {
       results.map(({ id, title, poster_path: poster }) => ({
         id,
         title,
-        poster: IMG_URL + poster,
+        poster: poster ? IMG_URL + poster : noPhoto,
       }))
     )
     .catch(error => {
@@ -62,7 +62,7 @@ export const fetchMovieDetails = movieId => {
         },
       }) => ({
         id,
-        poster: IMG_URL + poster,
+        poster: poster ? IMG_URL + poster : noPhoto,
         title,
         releaseYear: new Date(releaseYear).getFullYear(),
         userScore: Math.round(userScore * 10),
